@@ -58,6 +58,7 @@ In most cases you only have to change the .env file because it contains variable
 * Copy the main files (everything except /public and README.md) to your project
 * Make a copy of the `.env.example` file and name it `.env`, or copy the needed values to your existing .env file. Laravel users do not have to copy anything.
 * Make sure the current configuration matches your project setup. CMS like Wordpress or Drupal need additinal configuration.
+* Replace `project` with your own project name in the `docker-compose.yml` file.
 * Run `docker-compose up -d`
 
 Docker will then download all images and start them up. By default Port 80 on your host machine is bound to nginx so you should be able to access your app by opening `http://localhost` in your browser.
