@@ -1,6 +1,12 @@
 # Docker Stack
 
-This repo contains a simple Docker setup you can drop into many PHP-based projects. Find out more about the idea behind this [in my blog post](https://kovah.me/en/5gw1x8-a-drop-in-docker-stack-for-php-app/).
+![PHP 7.3](https://img.shields.io/badge/PHP-7.3-8892BF.svg)
+![MariaDB 10.3](https://img.shields.io/badge/Database_Server-MariaDB_10.3-c0765a.svg)
+![nginx](https://img.shields.io/badge/Webserver-nginx_1.14-009447.svg)
+![Redis](https://img.shields.io/badge/Cache_Engine-Redis_5-D92A2A.svg)
+![Laravel ready!](https://img.shields.io/badge/Laravel-Ready_✔-e74430.svg)
+
+This repo contains a simple Docker setup you can drop into many PHP-based projects. Find out more about the idea behind this [in my blog post](https://blog.kovah.de/en/5gw1x8-a-drop-in-docker-stack-for-php-app/).
 
 
 ## Basics
@@ -18,14 +24,14 @@ Directory structure
 └─ docker-compose.yml
 ```
 
-My default setup consists of PHP, a MySQL-compatible database server, nginx and Redis. All services are defined in the `docker-compose.yml` file.
+My default setup consists of PHP, MariaDB as a MySQL-compatible database server, nginx and Redis. All services are defined in the `docker-compose.yml` file.
 
 Part of the docker-compose
 ```
-# --- PHP 7.2
+# --- PHP 7.3
 php:
   container_name: "project-php"
-  image: bitnami/php-fpm:7.2
+  image: bitnami/php-fpm:7.3
   volumes:
     - .:/app
     - ./docker/php.ini:/opt/bitnami/php/etc/conf.d/php.ini:ro
@@ -43,12 +49,19 @@ nginx:
     - ./docker/nginx.conf:/opt/bitnami/nginx/conf/vhosts/site.conf:ro
 ```
 
-This is the definition of the PHP and nginx containers. As you can see it runs with PHP 7.2. The only things it does is to make the project available in the `/app` directory (the base directory for all Bitnami containers) and apply your custom php.ini.
+This is the definition of the PHP and nginx containers. As you can see it runs with PHP 7.3. The only things it does is to make the project available in the `/app` directory (the base directory for all Bitnami containers) and apply your custom php.ini.
 
-You can find details about the definition of each service in the main README file.
+### Current Service Versions
+
+| Service  | Version  |
+| -------- | -------- |
+| PHP      | 7.4      |
+| MariaDB  | 10.3     |
+| nginx    | 1.14     |
+| Redis    | 5.0      |
 
 
-## Setup Configuration
+## Setup & Configuration
 
 In most cases you only have to change the .env file because it contains variable details about the stack and passwords. The main stack works for all plain PHP projects but you can easily make it work with Laravel or any CMS by changing the `nginx.conf` file because each system may has different requirements on the web server configuration.
 
