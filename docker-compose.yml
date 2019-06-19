@@ -14,8 +14,6 @@ services:
       - MARIADB_DATABASE=${DB_DATABASE}
     ports:
       - "127.0.0.1:3306:3306"
-    env_file:
-      - ./.env
     volumes:
       - ./.db:/bitnami:delegated
 
