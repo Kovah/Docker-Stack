@@ -55,7 +55,7 @@ This is the definition of the PHP and nginx containers. As you can see it runs w
 
 | Service  | Version  |
 | -------- | -------- |
-| PHP      | 7.4      |
+| PHP      | 7.3      |
 | MariaDB  | 10.3     |
 | nginx    | 1.14     |
 | Redis    | 5.0      |
