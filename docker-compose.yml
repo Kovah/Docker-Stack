@@ -15,7 +15,7 @@ services:
     ports:
       - "127.0.0.1:3306:3306"
     volumes:
-      - ./.db:/bitnami:delegated
+      - project-db:/bitnami:delegated
 
   # --- PHP 7.3
   php:
@@ -47,3 +47,7 @@ services:
       - REDIS_PASSWORD=${REDIS_PASSWORD}
     ports:
       - "127.0.0.1:6379:6379"
+
+volumes:
+  project-db:
+    driver: local
