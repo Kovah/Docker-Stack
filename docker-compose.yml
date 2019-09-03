@@ -23,6 +23,7 @@ services:
     image: bitnami/php-fpm:7.3
     depends_on:
       - db
+      - redis
     volumes:
       - .:/app
       - ./docker/php.ini:/opt/bitnami/php/etc/conf.d/php.ini:ro
