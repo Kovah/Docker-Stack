@@ -36,10 +36,10 @@ php:
     - .:/app
     - ./docker/php.ini:/opt/bitnami/php/etc/conf.d/php.ini:ro
 
-# --- nginx 1.14
+# --- nginx 1.16
 nginx:
   container_name: "project-nginx"
-  image: bitnami/nginx:1.14
+  image: bitnami/nginx:1.16
   ports:
     - "127.0.0.1:80:8085"
   depends_on:
@@ -57,7 +57,7 @@ This is the definition of the PHP and nginx containers. As you can see it runs w
 | -------- | -------- |
 | PHP      | 7.3      |
 | MariaDB  | 10.3     |
-| nginx    | 1.14     |
+| nginx    | 1.16     |
 | Redis    | 5.0      |
 
 
