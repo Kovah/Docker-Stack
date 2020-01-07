@@ -2,7 +2,7 @@
 
 ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-8892BF.svg)
 ![MariaDB 10.3](https://img.shields.io/badge/Database_Server-MariaDB_10.3-c0765a.svg)
-![nginx](https://img.shields.io/badge/Webserver-nginx_1.14-009447.svg)
+![nginx](https://img.shields.io/badge/Webserver-nginx_1.16-009447.svg)
 ![Redis](https://img.shields.io/badge/Cache_Engine-Redis_5-D92A2A.svg)
 ![Laravel ready!](https://img.shields.io/badge/Laravel-Ready_✔-e74430.svg)
 
