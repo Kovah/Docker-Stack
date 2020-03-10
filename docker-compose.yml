@@ -3,10 +3,10 @@ version: "3"
 
 services:
 
-  # --- MariaDB 10.3
+  # --- MariaDB 10.4
   db:
     container_name: "project-db"
-    image: bitnami/mariadb:10.3
+    image: bitnami/mariadb:10.4
     environment:
       - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
       - MARIADB_USER=${DB_USERNAME}
@@ -17,10 +17,10 @@ services:
     volumes:
       - project-db:/bitnami:delegated
 
-  # --- PHP 7.3
+  # --- PHP 7.4
   php:
     container_name: "project-php"
-    image: bitnami/php-fpm:7.3
+    image: bitnami/php-fpm:7.4
     depends_on:
       - db
       - redis

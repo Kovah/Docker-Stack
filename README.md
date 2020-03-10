@@ -1,7 +1,7 @@
 # Docker Stack
 
-![PHP 7.3](https://img.shields.io/badge/PHP-7.3-8892BF.svg)
-![MariaDB 10.3](https://img.shields.io/badge/Database_Server-MariaDB_10.3-c0765a.svg)
+![PHP 7.4](https://img.shields.io/badge/PHP-7.4-8892BF.svg)
+![MariaDB 10.4](https://img.shields.io/badge/Database_Server-MariaDB_10.4-c0765a.svg)
 ![nginx](https://img.shields.io/badge/Webserver-nginx_1.16-009447.svg)
 ![Redis](https://img.shields.io/badge/Cache_Engine-Redis_5-D92A2A.svg)
 ![Laravel ready!](https://img.shields.io/badge/Laravel-Ready_✔-e74430.svg)
@@ -28,10 +28,10 @@ My default setup consists of PHP, MariaDB as a MySQL-compatible database server,
 
 Part of the docker-compose
 ```
-# --- PHP 7.3
+# --- PHP 7.4
 php:
   container_name: "project-php"
-  image: bitnami/php-fpm:7.3
+  image: bitnami/php-fpm:7.4
   volumes:
     - .:/app
     - ./docker/php.ini:/opt/bitnami/php/etc/conf.d/php.ini:ro
@@ -55,8 +55,8 @@ This is the definition of the PHP and nginx containers. As you can see it runs w
 
 | Service  | Version  |
 | -------- | -------- |
-| PHP      | 7.3      |
-| MariaDB  | 10.3     |
+| PHP      | 7.4      |
+| MariaDB  | 10.4     |
 | nginx    | 1.16     |
 | Redis    | 5.0      |
 
