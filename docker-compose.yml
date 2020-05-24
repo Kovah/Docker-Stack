@@ -25,19 +25,19 @@ services:
       - db
       - redis
     volumes:
-      - .:/app
+      - .:/app:delegated
       - ./docker/php.ini:/opt/bitnami/php/etc/conf.d/php.ini:ro
 
-  # --- nginx 1.16
+  # --- nginx 1.18
   nginx:
     container_name: "project-nginx"
-    image: bitnami/nginx:1.16
+    image: bitnami/nginx:1.18
     ports:
       - "80:8080"
     depends_on:
       - php
     volumes:
-      - .:/app
+      - .:/app:delegated
       - ./docker/nginx.conf:/opt/bitnami/nginx/conf/vhosts/site.conf:ro
 
   # --- Redis 5.0

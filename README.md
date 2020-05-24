@@ -2,7 +2,7 @@
 
 ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-8892BF.svg)
 ![MariaDB 10.4](https://img.shields.io/badge/Database_Server-MariaDB_10.4-c0765a.svg)
-![nginx](https://img.shields.io/badge/Webserver-nginx_1.16-009447.svg)
+![nginx](https://img.shields.io/badge/Webserver-nginx_1.18-009447.svg)
 ![Redis](https://img.shields.io/badge/Cache_Engine-Redis_5-D92A2A.svg)
 ![Laravel ready!](https://img.shields.io/badge/Laravel-Ready_✔-e74430.svg)
 
@@ -33,19 +33,19 @@ php:
   container_name: "project-php"
   image: bitnami/php-fpm:7.4
   volumes:
-    - .:/app
+    - .:/app:delegated
     - ./docker/php.ini:/opt/bitnami/php/etc/conf.d/php.ini:ro
 
-# --- nginx 1.16
+# --- nginx 1.18
 nginx:
   container_name: "project-nginx"
-  image: bitnami/nginx:1.16
+  image: bitnami/nginx:1.18
   ports:
     - "127.0.0.1:80:8085"
   depends_on:
     - php
   volumes:
-    - .:/app
+    - .:/app:delegated
     - ./docker/nginx.conf:/opt/bitnami/nginx/conf/vhosts/site.conf:ro
 ```
 
@@ -57,13 +57,13 @@ This is the definition of the PHP and nginx containers. As you can see it runs w
 | -------- | -------- |
 | PHP      | 7.4      |
 | MariaDB  | 10.4     |
-| nginx    | 1.16     |
+| nginx    | 1.18     |
 | Redis    | 5.0      |
 
 
 ## Setup & Configuration
 
-In most cases you only have to change the .env file because it contains variable details about the stack and passwords. The main stack works for all plain PHP projects but you can easily make it work with Laravel or any CMS by changing the `nginx.conf` file because each system may has different requirements on the web server configuration.
+In most cases you only have to change the .env file because it contains variable details about the stack and passwords. The main stack works for all plain PHP projects, but you can easily make it work with Laravel or any CMS by changing the `nginx.conf` file because each system may has different requirements on the web server configuration.
 
 
 ## Installation and usage
@@ -72,9 +72,9 @@ In most cases you only have to change the .env file because it contains variable
 * Make a copy of the `.env.example` file and name it `.env`, or copy the needed values to your existing .env file. Laravel users do not have to copy anything.
 * Make sure the current configuration matches your project setup. CMS like Wordpress or Drupal need additinal configuration.
 * Replace `project` with your own project name in the `docker-compose.yml` file.
-* Run `docker-compose up -d`
+* Run `docker-compose up -d`.
 
-Docker will then download all images and start them up. By default Port 80 on your host machine is bound to nginx so you should be able to access your app by opening `http://localhost` in your browser.
+Docker will then download all images and start them up. By default, port 80 on your host machine is bound to nginx, so you should be able to access your app by opening `http://localhost` in your browser.
 
 
 ---
