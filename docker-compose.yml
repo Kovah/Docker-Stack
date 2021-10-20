@@ -3,10 +3,10 @@ version: "3"
 
 services:
 
-  # --- MariaDB 10.5
+  # --- MariaDB
   db:
-    container_name: "project-db"
-    image: bitnami/mariadb:10.5
+    container_name: "${APP_NAME}-db"
+    image: bitnami/mariadb:10.6
     environment:
       - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
       - MARIADB_USER=${DB_USERNAME}
@@ -17,10 +17,10 @@ services:
     volumes:
       - project-db:/bitnami:delegated
 
-  # --- PHP 7.4
+  # --- PHP
   php:
-    container_name: "project-php"
-    image: bitnami/php-fpm:7.4
+    container_name: "${APP_NAME}-php"
+    image: bitnami/php-fpm:8.0
     depends_on:
       - db
       - redis
@@ -28,10 +28,10 @@ services:
       - .:/app:delegated
       - ./docker/php.ini:/opt/bitnami/php/etc/conf.d/php.ini:ro
 
-  # --- nginx 1.19
+  # --- nginx
   nginx:
-    container_name: "project-nginx"
-    image: bitnami/nginx:1.19
+    container_name: "${APP_NAME}-nginx"
+    image: bitnami/nginx:1.21
     ports:
       - "80:8080"
     depends_on:
@@ -40,10 +40,10 @@ services:
       - .:/app:delegated
       - ./docker/nginx.conf:/opt/bitnami/nginx/conf/server_blocks/site.conf:ro
 
-  # --- Redis 6.0
+  # --- Redis
   redis:
-    container_name: "project-redis"
-    image: bitnami/redis:6.0
+    container_name: "${APP_NAME}-redis"
+    image: bitnami/redis:6.2
     environment:
       - REDIS_PASSWORD=${REDIS_PASSWORD}
 
