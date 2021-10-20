@@ -68,7 +68,7 @@ In most cases you only have to change the .env file because it contains variable
 
 ## Installation and usage
 
-* Copy the main files (everything except /public and README.md) to your project
+* Copy the main files (everything except /public, /.github and README.md) to your project
 * Make a copy of the `.env.example` file and name it `.env`, or copy the needed values to your existing .env file. Laravel users do not have to copy anything.
 * Make sure the current configuration matches your project setup. CMS like Wordpress or Drupal need additional configuration.
 * Replace `dockerstack` with your own project name in the `APP_NAME` variable in the .env file.
