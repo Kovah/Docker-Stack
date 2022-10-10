@@ -6,7 +6,7 @@ services:
   # --- MariaDB
   db:
     container_name: "${APP_NAME}-db"
-    image: bitnami/mariadb:10.6
+    image: bitnami/mariadb:10.7
     environment:
       - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
       - MARIADB_USER=${DB_USERNAME}
@@ -20,7 +20,7 @@ services:
   # --- PHP
   php:
     container_name: "${APP_NAME}-php"
-    image: bitnami/php-fpm:8.0
+    image: bitnami/php-fpm:8.1
     depends_on:
       - db
       - redis

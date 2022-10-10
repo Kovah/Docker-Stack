@@ -1,7 +1,7 @@
 ![Docker Stack](public/docker_stack_banner.jpg)
 
-![PHP 8](https://img.shields.io/badge/PHP-8.0-8892BF.svg)
-![MariaDB](https://img.shields.io/badge/Database_Server-MariaDB_10.6-c0765a.svg)
+![PHP 8](https://img.shields.io/badge/PHP-8.1-8892BF.svg)
+![MariaDB](https://img.shields.io/badge/Database_Server-MariaDB_10.7-c0765a.svg)
 ![nginx](https://img.shields.io/badge/Webserver-nginx_1.21-009447.svg)
 ![Redis](https://img.shields.io/badge/Cache_Engine-Redis_6-D92A2A.svg)
 ![Laravel ready!](https://img.shields.io/badge/Laravel-Ready_✔-e74430.svg)
@@ -31,7 +31,7 @@ Part of the docker-compose
 # --- PHP
 php:
   container_name: "project-php"
-  image: bitnami/php-fpm:8.0
+  image: bitnami/php-fpm:8.1
   volumes:
     - .:/app:delegated
     - ./docker/php.ini:/opt/bitnami/php/etc/conf.d/php.ini:ro
@@ -41,7 +41,7 @@ nginx:
   container_name: "project-nginx"
   image: bitnami/nginx:1.21
   ports:
-    - "127.0.0.1:80:8085"
+    - "127.0.0.1:80:8080"
   depends_on:
     - php
   volumes:
@@ -53,12 +53,12 @@ This is the definition of the PHP and nginx containers. As you can see it runs w
 
 ### Current Service Versions
 
-| Service  | Version  |
-| -------- | -------- |
-| PHP      | 8.0      |
-| MariaDB  | 10.6     |
-| nginx    | 1.21     |
-| Redis    | 6.2      |
+| Service  | Version |
+| -------- |---------|
+| PHP      | 8.1     |
+| MariaDB  | 10.7    |
+| nginx    | 1.21    |
+| Redis    | 6.2     |
 
 
 ## Setup & Configuration
