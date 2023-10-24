@@ -20,7 +20,7 @@ services:
   # --- PHP
   php:
     container_name: "${APP_NAME}-php"
-    image: bitnami/php-fpm:8.1
+    image: bitnami/php-fpm:8.2
     depends_on:
       - db
       - redis
