@@ -43,7 +43,7 @@ services:
   # --- Redis
   redis:
     container_name: "${APP_NAME}-redis"
-    image: bitnami/redis:6.2
+    image: bitnami/redis:7.2
     environment:
       - REDIS_PASSWORD=${REDIS_PASSWORD}
 
