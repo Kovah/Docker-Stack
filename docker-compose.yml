@@ -6,7 +6,7 @@ services:
   # --- MariaDB
   db:
     container_name: "${APP_NAME}-db"
-    image: bitnami/mariadb:10.7
+    image: bitnami/mariadb:11.1
     environment:
       - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
       - MARIADB_USER=${DB_USERNAME}
