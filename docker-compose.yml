@@ -6,7 +6,7 @@ services:
   # --- MariaDB
   db:
     container_name: "${APP_NAME}-db"
-    image: bitnami/mariadb:10.7
+    image: bitnami/mariadb:11.1
     environment:
       - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
       - MARIADB_USER=${DB_USERNAME}
@@ -43,7 +43,7 @@ services:
   # --- Redis
   redis:
     container_name: "${APP_NAME}-redis"
-    image: bitnami/redis:6.2
+    image: bitnami/redis:7.2
     environment:
       - REDIS_PASSWORD=${REDIS_PASSWORD}
 
